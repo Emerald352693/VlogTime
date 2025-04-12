@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VlogTime</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0fdf4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #10b981;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .vlog {
+      background-color: white;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 800px;
+    }
+    .comments {
+      margin-top: 20px;
+    }
+    .comment-box textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .comment-box button {
+      background-color: #10b981;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .comment {
+      background-color: #f9f9f9;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VlogTime</h1>
+    <p>Günlük yaşantılar, maceralar ve yorumlar burada!</p>
+  </header>
+
+  <div class="vlog">
+    <h2>İlk Vlog: Merhaba Dünya!</h2>
+    <p>Bugün ilk vlogumu paylaşıyorum. Bu siteyi yeni kurdum. Görüşlerinizi yorum olarak bırakabilirsiniz!</p>
+
+    <div class="comments">
+      <h3>Yorumlar</h3>
+      <div id="comment-list"></div>
+      <div class="comment-box">
+        <textarea id="comment-input" rows="3" placeholder="Yorumunu yaz..."></textarea><br>
+        <button onclick="addComment()">Gönder</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addComment() {
+      const input = document.getElementById("comment-input");
+      const comment = input.value.trim();
+      if (comment !== "") {
+        const list = document.getElementById("comment-list");
+        const newComment = document.createElement("div");
+        newComment.className = "comment";
+        newComment.textContent = comment;
+        list.appendChild(newComment);
+        input.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
