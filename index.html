@@ -79,24 +79,5 @@
 
   <script>
     function submitComment() {
-      var commentText = document.getElementById("commentInput").value;
-
-      // Eğer yorum boş değilse, ekleyelim
-      if (commentText.trim() !== "") {
-        var commentList = document.getElementById("commentList");
-        var newComment = document.createElement("div");
-        newComment.classList.add("comment");
-        newComment.textContent = commentText;
-        commentList.appendChild(newComment);
-
-        // Yorum kutusunu temizle
-        document.getElementById("commentInput").value = "";
-      } else {
-        alert("Lütfen bir yorum yazın!");
-      }
-    }
-  </script>
-</body>
-</html>
-
+      var commentText = document.getElementById("commentInput").
         
