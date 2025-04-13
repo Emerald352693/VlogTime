@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -42,44 +41,62 @@
       padding: 10px 20px;
       border: none;
       border-radius: 6px;
-      margin-top: 10px;
       cursor: pointer;
     }
-    .comment {
-      background-color: #f9f9f9;
+    .comment-box button:hover {
+      background-color: #059e5b;
+    }
+    .comment-list {
+      margin-top: 20px;
       padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    .comment {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>VlogTime</h1>
-    <p>Günlük yaşantılar, maceralar ve yorumlar burada!</p>
   </header>
 
   <div class="vlog">
-    <h2>İlk Vlog: Merhaba Dünya!</h2>
-    <p>Bugün ilk vlogumu paylaşıyorum. Bu siteyi yeni kurdum. Görüşlerinizi yorum olarak bırakabilirsiniz!</p>
-
+    <h2>Vlog Başlığı</h2>
+    <p>Buraya vlog içeriğinizi ekleyin...</p>
+    
     <div class="comments">
-      <h3>Yorumlar</h3>
-      <div id="comment-list"></div>
       <div class="comment-box">
-        <textarea id="comment-input" rows="3" placeholder="Yorumunu yaz..."></textarea><br>
-        <button onclick="addComment()">Gönder</button>
+        <textarea id="commentInput" placeholder="Yorum yaz..."></textarea>
+        <button onclick="submitComment()">Yorum Yap</button>
       </div>
+
+      <div class="comment-list" id="commentList"></div>
     </div>
   </div>
 
   <script>
-    function addComment() {
-      const input = document.getElementById("comment-input");
-      const comment = input.value.trim();
-      if (comment !== "") {
-        const list = document.getElementById("comment-list");
-        const newComment = document.createElement("div");
-        newComment.className = "comment";
+    function submitComment() {
+      var commentText = document.getElementById("commentInput").value;
+
+      // Eğer yorum boş değilse, ekleyelim
+      if (commentText.trim() !== "") {
+        var commentList = document.getElementById("commentList");
+        var newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.textContent = commentText;
+        commentList.appendChild(newComment);
+
+        // Yorum kutusunu temizle
+        document.getElementById("commentInput").value = "";
+      } else {
+        alert("Lütfen bir yorum yazın!");
+      }
+    }
+  </script>
+</body>
+</html>
 
         
